@@ -1,4 +1,4 @@
-import supabase from './db-client.js';
+import supabase from './_helpers/db-client.js';
 import { cors, verifyPassword, signAccessToken, validEmail, clientIp } from './_helpers/auth.js';
 
 export default async function handler(req, res) {

@@ -4,5 +4,18 @@
       "source": "/((?!api/).*)",
       "destination": "/index.html"
     }
-  ]
+  ],
+  "functions": {
+    "api/change-password.js": { "maxDuration": 10 },
+    "api/forgot-password.js": { "maxDuration": 10 },
+    "api/login-history.js": { "maxDuration": 10 },
+    "api/login.js": { "maxDuration": 10 },
+    "api/logout.js": { "maxDuration": 10 },
+    "api/me.js": { "maxDuration": 10 },
+    "api/register.js": { "maxDuration": 10 },
+    "api/resend-otp.js": { "maxDuration": 10 },
+    "api/reset-password.js": { "maxDuration": 10 },
+    "api/update-profile.js": { "maxDuration": 10 },
+    "api/verify-email.js": { "maxDuration": 10 }
+  }
 }

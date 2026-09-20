@@ -1,4 +1,4 @@
-import supabase from './db-client.js';
+import supabase from './_helpers/db-client.js';
 import { cors, hashPassword, passwordIssues } from './_helpers/auth.js';
 import { hashOtp } from './_helpers/otp.js';
 

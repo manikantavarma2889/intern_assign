@@ -1,4 +1,4 @@
-import supabase from './db-client.js';
+import supabase from './_helpers/db-client.js';
 import { cors } from './_helpers/auth.js';
 import { generateOtp, hashOtp } from './_helpers/otp.js';
 import { sendOtpEmail } from './_helpers/email.js';

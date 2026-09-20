@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0a0f0d;
+  --color-bg-elev: #0f1613;
+  --color-surface: #131b17;
+  --color-surface-2: #182220;
+  --color-border: #1f2a24;
+  --color-border-strong: #2c3a33;
+  --color-text: #e8e6e0;
+  --color-text-dim: #b8b5ac;
+  --color-muted: #7a8580;
+  --color-brass: #e8b05c;
+  --color-brass-dim: #b6803a;
+  --color-mint: #8fd694;
+  --color-coral: #e87762;
+  --color-cyan: #6dcfd1;
+
+  --font-display: 'Instrument Serif', ui-serif, Georgia, serif;
+  --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+html, body, #root {
+  height: 100%;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background:
+    radial-gradient(1200px 700px at 15% -10%, rgba(232, 176, 92, 0.06), transparent 60%),
+    radial-gradient(900px 600px at 100% 100%, rgba(109, 207, 209, 0.04), transparent 60%),
+    var(--color-bg);
+  background-attachment: fixed;
+}
+
+/* Subtle grain */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.06 0 0 0 0 0.09 0 0 0 0 0.08 0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+#root { position: relative; z-index: 1; }
+
+/* Custom autofill */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px var(--color-surface) inset !important;
+  -webkit-text-fill-color: var(--color-text) !important;
+  caret-color: var(--color-text);
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Selection */
+::selection { background: rgba(232, 176, 92, 0.35); color: #fff; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-border-strong); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-muted); }
+
+/* Reusable */
+.brass-gradient {
+  background: linear-gradient(135deg, #e8b05c 0%, #b6803a 100%);
+}
+.brass-text {
+  background: linear-gradient(135deg, #f0c377 0%, #b6803a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* OTP input pulse */
+@keyframes otp-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232, 176, 92, 0.35); }
+  50% { box-shadow: 0 0 0 6px rgba(232, 176, 92, 0); }
+}
+.otp-focus { animation: otp-pulse 1.5s ease-out infinite; }
+
+/* Vault ring animation */
+@keyframes vault-spin { to { transform: rotate(360deg); } }
+.vault-spin { animation: vault-spin 24s linear infinite; }
